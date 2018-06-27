@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', function () { phpinfo(); //return view('welcome');
-});
-Route::get('test2', function () { return view('welcome'); });
+Route::get('/', function () { phpinfo(); });
+
 
 Route::get('dashboard', 'DashboardController@home');
+
+// Start Facility Route
+Route::get('facility/{id}', 'FacilityController@pending');
+
+// End Facility Routes
