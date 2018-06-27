@@ -2,11 +2,13 @@
 
 @section('title', 'Dashboard')
 
-@include('partials.left_nav')
+@section('left_nav')
+    @include('partials.left_nav')
+@endsection
 
 <!-- Right Panel -->
+@section('right_nav')
 <div id="right-panel" class="right-panel">
-
-@include('partials.header')
-
+    @include('partials.header')
 </div>
+@endsection

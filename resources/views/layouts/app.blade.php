@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/flag-icon.min.css">
     <link rel="stylesheet" href="css/cs-skin-elastic.css">
@@ -25,10 +25,19 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 </head>
 <body>
+@section('left_nav')
+    This is the master sidebar.
+@show
+
+@section('right_nav')
+    This is the master sidebar.
+@show
 
 @yield('content')
 
 <script src="js/jquery-2.1.4.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/plugins.js"></script>
 </body>
 </html>
