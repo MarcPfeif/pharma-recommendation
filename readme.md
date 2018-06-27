@@ -10,9 +10,6 @@ TODO:
 
 - TODO:
 
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
-
 ## Contacts
 
 - **hkaufman@centershealthcare.org**
