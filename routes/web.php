@@ -20,3 +20,16 @@ Route::get('dashboard', 'DashboardController@home');
 Route::get('facility/{id}', 'FacilityController@pending');
 
 // End Facility Routes
+
+
+
+
+// Test Routes
+Route::get('/test-db', function() {
+    try {
+        DB::connection()->getPdo();
+        return "success connected to db";
+    } catch (\Exception $e) {
+        die("Could not connect to the database.  Please check your configuration. error:" . $e );
+    }
+});

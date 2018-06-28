@@ -14,3 +14,9 @@ TODO:
 
 - **hkaufman@centershealthcare.org**
 - **WSchweitzer@centershealthcare.org**
+
+## Dependencies
+    - NGINX  - see documentation directory for sample configuration
+    - Postgres
+    - PHP7
+    - PHP7-FPM 
