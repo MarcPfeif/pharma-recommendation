@@ -28,6 +28,6 @@ TODO:
     - Restart NGINX:e systemctl restart nginx.service
     - Restart FPM Service: systemctl restart php7.1-fpm.service
 
-##Enable Nginx and PHP-FPM on system boot:
+## Enable Nginx and PHP-FPM on system boot:
 - sudo systemctl enable nginx.service
 - sudo systemctl enable php7.1-fpm.service
