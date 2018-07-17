@@ -3,3 +3,5 @@ requests
 SQLAlchemy
 django
 psycopg2
+## --> sudo apt-get install python3.6-dev <-- needed for uwsgi
+uwsgi
