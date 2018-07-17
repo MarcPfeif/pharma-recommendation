@@ -1,0 +1,20 @@
+CREATE TABLE medispan ( 
+	[NDC_UPC_HRI] varchar(11), 
+	[RX_OTC_Indicator_Code] nvarchar(1), 
+	[Drug_Descriptor_Identifier] int, 
+	[Generic_Product_Identifier] nvarchar(14), 
+	[Price_Code] varchar(1), 
+	[Effective_Date] decimal(19,0), 
+	[Unit_Price] real, 
+	[Unit_Price___Extended] real, 
+	[Package_Price] real, 
+	[AWP_Indicator_Code] nvarchar(1), 
+	[Transaction_Code] nvarchar(1), 
+	[Last_Change_Date] bigint, 
+	[Drug_Name] nvarchar(30), 
+	[Route_of_Administration] nvarchar(2), 
+	[Dosage_Form] nvarchar(4), 
+	[Strength] nvarchar(15), 
+	[Strength_Unit_of_Measure] nvarchar(10), 
+	[Bioequivalence_Code] nvarchar(1) 
+)
