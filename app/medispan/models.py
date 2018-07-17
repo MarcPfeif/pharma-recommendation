@@ -22,3 +22,6 @@ class Drug(models.Model):
     strength = models.CharField(max_length=15, null=True, blank=True)
     strength_unit_of_measure = models.CharField(max_length=10, null=True, blank=True)
     bioequivalence_code = models.CharField(max_length=1, null=True, blank=True)
+
+    def __str__(self):
+        return self.ndc_upc_hri + " - " + self.drug_name

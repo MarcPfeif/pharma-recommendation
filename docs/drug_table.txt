@@ -7,11 +7,35 @@ The Legend Indicator Code which is a summarization of the RX-OTC Indicator
 Code, is assigned to a DDID
 
 FIELD = rx_otc_indicator_code
-VALUES =
+VALUES:
 R = Item Requires a prescription
 O = Over the Counter
 S = Item Requires a prescription ( available from more than 1 manufacturer )
 P = Over the Counter ( available from more than 1 manufacturer )
+
+The Price Code indicates the type of price in the record.
+“HCFA FFP” represents the Centers for Medicare and Medicaid
+Services Federal Upper Limit (CMS FUL).
+
+FIELD = price_code
+VALUES:
+A = AWP
+D = DP
+H = HCFA FFP
+U = HCFA FFP for unit dose items
+W = WAC
+
+The AWP Indicator Code is a proprietary Wolters Kluwer Clinical Drug
+Information concept that indicates how the AWP was obtained by Wolters
+Kluwer Clinical Drug Information.
+
+FIELD = awp_indicator_code
+VALUES:
+A = Mark-up < 1.20 mfr. WAC or DP
+S = Mfr. suggested AWP
+K = Adj. std. mark-up of 1.20 mfr. WAC or DP
+L = Std. mark-up of 1.20 mfr. WAC or DP
+
 
 
 The Bioequivalence Code is a proprietary Wolters Kluwer Clinical Drug
@@ -21,7 +45,7 @@ products sharing a DDID. This code also indicates when the TEE Code cannot be
 generalized.
 
 FIELD = bioequivalence_code
-VALUES =
+VALUES:
 A - Products in same GPI are equivalent
 B - Products in same GPI are not equivalent
 C - Products may or may not be equivalent
