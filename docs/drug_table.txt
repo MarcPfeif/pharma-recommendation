@@ -1,0 +1,29 @@
+=== Enumerated Fields in medispan_drug table ===
+The RX-OTC Indicator Code, assigned to the NDC-UPC-HRI, indicates Federal
+Prescription (Rx) (legend) or Over-the-Counter (OTC) (non-legend) status. If
+coded “R”, the item requires a prescription; if coded “O”, the item is an OTC
+product. This information is obtained from the manufacturer’s product labeling.
+The Legend Indicator Code which is a summarization of the RX-OTC Indicator
+Code, is assigned to a DDID
+
+FIELD = rx_otc_indicator_code
+VALUES =
+R = Item Requires a prescription
+O = Over the Counter
+S = Item Requires a prescription ( available from more than 1 manufacturer )
+P = Over the Counter ( available from more than 1 manufacturer )
+
+
+The Bioequivalence Code is a proprietary Wolters Kluwer Clinical Drug
+Information concept, assigned to the DDID, that generalizes the Therapeutic
+Equivalence Evaluation (TEE) Code assigned at the NDC-UPC-HRI level for
+products sharing a DDID. This code also indicates when the TEE Code cannot be
+generalized.
+
+FIELD = bioequivalence_code
+VALUES =
+A - Products in same GPI are equivalent
+B - Products in same GPI are not equivalent
+C - Products may or may not be equivalent
+N - Equivalency determination not available
+U - Undeterminable (obsolete)
