@@ -17,10 +17,10 @@ route_of_administration,
 dosage_form,
 strength,
 strength_unit_of_measure,
-bioequivalence_code
+bioequivalence_code,
+manufacturer
 )
 FROM '/home/walter/centers/pharma2.0/data-ingest/test-dump.csv' WITH (FORMAT csv);
 
-\copy medispan_drug(ndc_upc_hri,rx_otc_indicator_code,drug_descriptor_identifier,generic_product_identifier,price_code,effective_date,unit_price,unit_price_extended,package_price,awp_indicator_code,transaction_code,last_change_date,drug_name,route_of_administration,dosage_form,strength,strength_unit_of_measure,bioequivalence_code) FROM '/home/walter/centers/pharma2.0/data-ingest/test-dump.csv' WITH (FORMAT csv);
+\copy medispan_drug(ndc_upc_hri,rx_otc_indicator_code,drug_descriptor_identifier,generic_product_identifier,price_code,effective_date,unit_price,unit_price_extended,package_price,awp_indicator_code,transaction_code,last_change_date,drug_name,route_of_administration,dosage_form,strength,strength_unit_of_measure,bioequivalence_code, manufacturer) FROM '/home/walter/centers/pharma2.0/data-ingest/Data_2018_07_19.csv' WITH (FORMAT csv);
 '''
-

@@ -25,4 +25,4 @@ class Drug(models.Model):
     bioequivalence_code = models.CharField(max_length=1, null=True, blank=True)
 
     def __str__(self):
-        return self.ndc_upc_hri + " - " + self.drug_name
+        return self.drug_name + " - " + self.manufacturer
