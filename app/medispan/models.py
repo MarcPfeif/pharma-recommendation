@@ -5,6 +5,7 @@ from django.db import models
 class Drug(models.Model):
     medispan_id = models.AutoField(primary_key=True)
     ndc_upc_hri = models.CharField(max_length=25)
+    manufacturer = models.CharField(max_length=200, null=True, blank=True)
     rx_otc_indicator_code = models.CharField(max_length=1,null=True, blank=True)
     drug_descriptor_identifier = models.IntegerField(null=True, blank=True)
     generic_product_identifier = models.CharField(max_length=14,null=True, blank=True)
