@@ -58,7 +58,6 @@ class DrugAdmin(admin.ModelAdmin):
     list_display = [
         'ndc_upc_hri',
         'drug_name',
-        'manufacturer',
         'route_of_administration',
         'dosage_form',
         'strength',
