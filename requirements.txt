@@ -5,3 +5,9 @@ django
 psycopg2
 ## --> sudo apt-get install python3.6-dev <-- needed for uwsgi
 uwsgi
+## sudo apt-get install python3 python-dev python3-dev \
+##     build-essential libssl-dev libffi-dev \
+##     libxml2-dev libxslt1-dev zlib1g-dev \
+##     python-pip 
+##     <-- Install the following is needed python3 for pyodbc
+pyodbc

@@ -27,17 +27,17 @@ class PriceCodeFilter(admin.SimpleListFilter):
          return list_of_price_codes
 
     def queryset(self, request, queryset):
-        """
+        '''
         Returns the filtered queryset based on the value
         provided in the query string and retrievable via
         `self.value()`.
-        """
+        '''
         # Compare the requested value to decide how to filter the queryset.
         if self.value():
             return queryset.filter(price_code=self.value())
         return queryset
 
-'''
+    '''
     def value(self):
         """
         Overriding this method will allow us to always have a default value.
@@ -45,7 +45,7 @@ class PriceCodeFilter(admin.SimpleListFilter):
         value = 'A'
 
         return value
-'''
+    '''
 
 '''
     DrugAdmin
@@ -62,13 +62,13 @@ class DrugAdmin(admin.ModelAdmin):
         'dosage_form',
         'strength',
         'strength_unit_of_measure',
+        'price_code',
         'unit_price',
     ]
 
     list_filter = (
         PriceCodeFilter,
     )
-
 
 
 

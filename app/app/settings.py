@@ -25,7 +25,7 @@ SECRET_KEY = '%+)bu7(x&b$r2w!g$h(t4z8p5)vvhm=l1*4=+_=yecn0p#ogn3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.254.23', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.254.19','192.168.254.23', '127.0.0.1']
 
 
 # Application definition
@@ -120,3 +120,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#tuple tells Django where to look for static files that are not tied
+# to a particular app.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+# python manage.py collectstaic ( compiles all static files into one directory)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

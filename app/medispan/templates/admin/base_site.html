@@ -1,0 +1,10 @@
+{% extends "admin/base.html" %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+  <link rel="stylesheet" type="text/css" href="{% static "admin/css/admin-extra.css" %}" />
+{% endblock %}
+
+{% block branding %}
+  <h1 id="site-name">Pharmacy 2.0 Admin</h1>
+{% endblock %}
