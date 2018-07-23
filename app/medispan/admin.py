@@ -53,9 +53,10 @@ class PriceCodeFilter(admin.SimpleListFilter):
 '''
 class DrugAdmin(admin.ModelAdmin):
     readonly_fields = ['drug_name']
-    search_fields = ['drug_name']
+    search_fields = ['drug_name', 'ndc_upc_hri']
     ordering = ['drug_name']
     list_display = [
+        'ndc_upc_hri',
         'drug_name',
         'manufacturer',
         'route_of_administration',
