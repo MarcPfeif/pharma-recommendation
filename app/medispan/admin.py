@@ -6,6 +6,23 @@ from django.db import models
 # Register your models here.
 from .models import Drug
 
+''' Route of Administration
+
+'''
+class RouteOfAdminFilter(admin.SimpleListFilter):
+    title = 'Route of Administration'
+    parameter_name = 'route_of_administration'
+    default_value = None
+
+    def lookups(self, request, model_admin):
+        pass
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(price_code=self.value())
+        return queryset
+
+
 '''
     PriceCodeFilter
     Additional Search Filter
@@ -64,12 +81,18 @@ class DrugAdmin(admin.ModelAdmin):
         'strength_unit_of_measure',
         'price_code',
         'unit_price',
+        'package_price'
     ]
 
     list_filter = (
         PriceCodeFilter,
     )
 
+    actions = ["export_as_csv"]
 
+    def export_as_csv(self, request, queryset):
+        pass
+
+    export_as_csv.short_description = "Export Selected"
 
 admin.site.register(Drug, DrugAdmin)
