@@ -1,7 +1,9 @@
 ''' admin.py '''
 
+import csv
 from django.contrib import admin
 from django.db import models
+from django.http import HttpResponse
 
 # Register your models here.
 from .models import Drug
@@ -90,8 +92,23 @@ class DrugAdmin(admin.ModelAdmin):
 
     actions = ["export_as_csv"]
 
+    '''
+        export_as_csv
+        selected rows will download csv file
+    '''
     def export_as_csv(self, request, queryset):
-        pass
+        meta = self.model._meta
+        field_names = [field.name for field in meta.fields]
+
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename={}.csv'.format(meta)
+        writer = csv.writer(response)
+
+        writer.writerow(field_names)
+        for obj in queryset:
+            row = writer.writerow([getattr(obj, field) for field in field_names])
+
+        return response
 
     export_as_csv.short_description = "Export Selected"
 
