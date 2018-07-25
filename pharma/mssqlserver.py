@@ -19,6 +19,9 @@ class ConnectSqlServer:
         self.username = os.getenv("MSSQL_USERNAME")
         self.password = os.getenv("MSSQL_PASSWORD")
 
+    '''
+        connect to sql server
+    '''
     def connect_sql_server(self):
         try:
 
@@ -34,3 +37,20 @@ class ConnectSqlServer:
             sqlstate = ex.args[0]
             print("Connection Failed Error Code:" + sqlstate)
             return 0
+
+    '''
+        gets all the tables and views in the database
+    '''
+    def get_all_tables(self, conn):
+        cursor = conn.cursor()
+        tables = []
+        for row in cursor.tables():
+            tables.append(row.table_name)
+
+        return tables
+
+    '''
+        basic select statement
+    '''
+    def get_rows_from_table(self, conn, fields, table, query =''):
+        pass
