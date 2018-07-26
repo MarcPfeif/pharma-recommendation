@@ -1,4 +1,4 @@
-''' admin.py '''
+''' medispan.admin.py '''
 
 import csv
 from django.contrib import admin
