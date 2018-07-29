@@ -5,18 +5,18 @@ from django.db import models
 
 
 ''' Non Preferred Drugs '''
-class NonPreferred(models.Model):
-    non_preferred_drug_id = models.AutoField(primary_key=True)
-    ndc = models.CharField(max_length=255, null=True, blank=True)
-    drug_name = models.CharField(max_length=255, unique=True)
+class NotPreferred(models.Model):
+    not_preferred_drug_id = models.AutoField(primary_key=True)
+    NDC = models.CharField(max_length=255, null=True, blank=True)
+    not_preferred_drug_name = models.CharField(max_length=255, null=True, blank=True)
     monthly_cost = models.CharField(max_length=255, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.drug_name
+        return self.not_preferred_drug_name
 
     class Meta:
-        ordering = ['drug_name']
+        ordering = ['not_preferred_drug_name']
         verbose_name = 'Not Preferred Drug'
         verbose_name_plural = 'Not Preferred Drugs'
 
@@ -25,17 +25,17 @@ class NonPreferred(models.Model):
 class Preferred(models.Model):
     preferred_drug_id = models.AutoField(primary_key=True)
     #preferred = models.ManyToManyField(NonPreferred, through='Position')
-    not_preferred = models.ManyToManyField(NonPreferred, related_name='not_preferred',)
-    ndc = models.CharField(max_length=255, null=True, blank=True)
-    drug_name = models.CharField(max_length=255, unique=True)
+    not_preferred = models.ManyToManyField(NotPreferred)
+    NDC = models.CharField(max_length=255, null=True, blank=True)
+    preferred_drug_name = models.CharField(max_length=255, null=True, blank=True)
     monthly_cost = models.CharField(max_length=255, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.drug_name
+        return self.preferred_drug_name
 
     class Meta:
-        ordering = ['drug_name']
+        ordering = ['preferred_drug_name']
         verbose_name = 'Preferred Drug'
         verbose_name_plural = 'Preferred Drugs'
 
@@ -43,6 +43,6 @@ class Preferred(models.Model):
 ''' Preference of the Preferred Drugs '''
 class Position(models.Model):
     position_id = models.AutoField(primary_key=True)
-    non_preferred_drug_id = models.ForeignKey(NonPreferred, null=True, on_delete=models.SET_NULL)
+    non_preferred_drug_id = models.ForeignKey(NotPreferred, null=True, on_delete=models.SET_NULL)
     preferred_drug_id = models.ForeignKey(Preferred, null=True, on_delete=models.SET_NULL)
     position = models.IntegerField(null=True, blank=True)

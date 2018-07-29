@@ -7,7 +7,35 @@ from django.contrib.admin.widgets import FilteredSelectMultiple
 
 
 # Register your models here.
-from .models import Preferred, NonPreferred
+from .models import Preferred, NotPreferred
+
+class PreferredInline(admin.TabularInline):
+    model = Preferred.not_preferred.through
+    extra = 1
+
+class PreferredAdmin(admin.ModelAdmin):
+    search_fields = ['drug_name', 'ndc']
+    ordering = ['preferred_drug_name']
+    list_display = [
+        'preferred_drug_name',
+        'NDC',
+        'monthly_cost'
+    ]
+
+class NotPreferredAdmin(admin.ModelAdmin):
+    search_fields = ['drug_name', 'ndc']
+    ordering = ['not_preferred_drug_name']
+    list_display = [
+        'not_preferred_drug_name',
+        'NDC',
+        'monthly_cost'
+    ]
+    inlines = [PreferredInline]
+
+admin.site.register(Preferred, PreferredAdmin)
+admin.site.register(NotPreferred, NotPreferredAdmin)
+
+
 '''
 class NonPreferredAdmin(admin.ModelAdmin):
     model = NonPreferred
@@ -50,31 +78,3 @@ class NonPreferredAdmin(admin.ModelAdmin):
 admin.site.register(Preferred, PreferredAdmin)
 admin.site.register(NonPreferred, NonPreferredAdmin)
 '''
-
-class PreferredInline(admin.TabularInline):
-    model = Preferred.not_preferred.through
-    extra = 1
-
-
-
-class PreferredAdmin(admin.ModelAdmin):
-    search_fields = ['drug_name', 'ndc']
-    ordering = ['drug_name']
-    list_display = [
-        'drug_name',
-        'ndc',
-        'monthly_cost'
-    ]
-
-class NonPreferredAdmin(admin.ModelAdmin):
-    search_fields = ['drug_name', 'ndc']
-    ordering = ['drug_name']
-    list_display = [
-        'drug_name',
-        'ndc',
-        'monthly_cost'
-    ]
-    inlines = [PreferredInline]
-
-admin.site.register(Preferred, PreferredAdmin)
-admin.site.register(NonPreferred, NonPreferredAdmin)
