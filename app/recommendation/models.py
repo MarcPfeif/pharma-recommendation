@@ -8,7 +8,7 @@ from django.db import models
 class NotPreferred(models.Model):
     not_preferred_drug_id = models.AutoField(primary_key=True)
     NDC = models.CharField(max_length=255, null=True, blank=True)
-    not_preferred_drug_name = models.CharField(max_length=255, null=True, blank=True)
+    not_preferred_drug_name = models.CharField(max_length=255, unique=True)
     monthly_cost = models.CharField(max_length=255, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
 
@@ -27,7 +27,7 @@ class Preferred(models.Model):
     #preferred = models.ManyToManyField(NonPreferred, through='Position')
     not_preferred = models.ManyToManyField(NotPreferred)
     NDC = models.CharField(max_length=255, null=True, blank=True)
-    preferred_drug_name = models.CharField(max_length=255, null=True, blank=True)
+    preferred_drug_name = models.CharField(max_length=255, unique=True)
     monthly_cost = models.CharField(max_length=255, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
 
