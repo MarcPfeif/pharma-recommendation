@@ -14,7 +14,7 @@ class PreferredInline(admin.TabularInline):
     extra = 1
 
 class PreferredAdmin(admin.ModelAdmin):
-    search_fields = ['drug_name', 'ndc']
+    search_fields = ['preferred_drug_name', 'NDC']
     ordering = ['preferred_drug_name']
     list_display = [
         'preferred_drug_name',
@@ -23,7 +23,7 @@ class PreferredAdmin(admin.ModelAdmin):
     ]
 
 class NotPreferredAdmin(admin.ModelAdmin):
-    search_fields = ['drug_name', 'ndc']
+    search_fields = ['not_preferred_drug_name', 'NDC']
     ordering = ['not_preferred_drug_name']
     list_display = [
         'not_preferred_drug_name',
