@@ -1,4 +1,4 @@
-''' drug_orders.models.py '''
+''' pcc_orders.models.py '''
 
 from django.contrib import admin
 from django.db import models

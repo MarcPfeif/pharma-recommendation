@@ -38,7 +38,7 @@ ALLOWED_HOSTS = ['192.168.254.19','192.168.254.23', '127.0.0.1']
 INSTALLED_APPS = [
     'medispan.apps.MedispanConfig',
     'recommendation.apps.RecommendationConfig',
-    'drug_orders.apps.DrugOrdersConfig',
+    'pcc.apps.PccConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
