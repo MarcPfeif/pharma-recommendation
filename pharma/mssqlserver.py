@@ -39,7 +39,7 @@ class ConnectSqlServer:
             return 0
 
     '''
-        gets all the tables and views in the database
+        returns all the tables and views in the database
     '''
     def get_all_tables(self, conn):
         cursor = conn.cursor()
@@ -50,7 +50,54 @@ class ConnectSqlServer:
         return tables
 
     '''
+        call a generic stored proc with no parameters
+        returns total rows
+    '''
+    def call_stored_procedure(self, conn, storedProc):
+        cursor = conn.cursor()
+        results = cursor.execute("{CALL " + storedProc + "}")
+
+        counter = 0
+        for result in results:
+            counter += 1
+
+        return counter
+
+    '''
+        returns a specific table in the database if it exists
+    '''
+    def does_table_exist(self, conn, tableName):
+        pass
+
+    '''
         basic select statement
     '''
     def get_rows_from_table(self, conn, fields, table, query =''):
         pass
+
+    '''
+        get drug orders for current date
+    '''
+    def get_all_drug_orders(self, conn):
+        cursor = conn.cursor()
+        results = cursor.execute("{CALL p_PCCDrugOrderGetList}")
+        counter = 0
+        for result in results:
+            counter += 1
+
+        print("All Drug Orders = " + str(counter))
+        return results ## for now this will be a sql object
+
+    '''
+        get drugs orders for any date
+    '''
+    def get_drug_orders_by_date(self, conn, date):
+        cursor = conn.cursor()
+        results = cursor.execute("{CALL p_PCCDrugOrderGetListByDate (?)}", date)
+        counter = 0
+        for result in results:
+            #print(result)
+            counter += 1
+
+        print(counter)
+        ## TODO: process above records
