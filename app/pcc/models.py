@@ -5,7 +5,7 @@ from django.db import models
 
 # Create your models here.
 class DrugOrders(models.Model):
-    drug_order_id = models.AutoField(primary_key=True)
+    pcc_drug_order_id = models.AutoField(primary_key=True)
     client_id = models.IntegerField(null=True, blank=True)
     phys_order_id = models.IntegerField(null=True, blank=True)
     patient_number = models.CharField(max_length=100, null=True, blank=True)

@@ -11,4 +11,14 @@ class ImportDrugOrders:
         self.meta = meta
 
     def process_orders(self, orders):
-        pass
+        for order in orders:
+            print(order[7])
+            '''
+            insert_stmt = insert(meta.tables['pcc_drugorders']).values(
+                jazz_id=contact['id'],
+                type=contact['type'],
+                last_name=contact['last_name'],
+                first_name=contact['first_name'],
+                email=contact['email']
+            )
+            '''

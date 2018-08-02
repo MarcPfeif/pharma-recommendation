@@ -94,10 +94,11 @@ class ConnectSqlServer:
     def get_drug_orders_by_date(self, conn, date):
         cursor = conn.cursor()
         results = cursor.execute("{CALL p_PCCDrugOrderGetListByDate (?)}", date)
-        counter = 0
-        for result in results:
-            #print(result)
-            counter += 1
-
-        print(counter)
+        
         return results
+        #counter = 0
+        #for result in results:
+        #    print(result)
+        #    counter += 1
+
+        #print(counter)
