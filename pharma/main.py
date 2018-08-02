@@ -3,6 +3,7 @@
 import datetime
 from db import Db
 from mssqlserver import ConnectSqlServer
+from import_drug_orders import ImportDrugOrders
 
 sqlServer = ConnectSqlServer()
 
@@ -30,4 +31,9 @@ orders = sqlServer.get_drug_orders_by_date(conn, today)
 db = Db()
 connection = db.connect_postgres()
 
+con = connection[0]
+meta = connection[1]
+
 ## process Orders
+importOrders = ImportDrugOrders(con, meta)
+importOrders.process_orders(orders)
