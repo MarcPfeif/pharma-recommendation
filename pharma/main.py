@@ -14,12 +14,13 @@ conn = sqlServer.connect_sql_server()
 #sqlServer.call_stored_procedure(conn, "p_PCCDrugOrderGetList")
 
 ## get drug orders for the current date
-sqlServer.get_all_drug_orders(conn)
+## sqlServer.get_all_drug_orders(conn)
 
 ## get drug orders for a specific date
 sqlServer.get_drug_orders_by_date(conn, '10/16/2017')
 
 ## get drug order for today
 now = datetime.datetime.now()
-today = now.month + "/" + now.day + "/" + now.year
+today = str(now.month) + "/" + str(now.day) + "/" + str(now.year)
+today = "10/16/2017"
 sqlServer.get_drug_orders_by_date(conn, today)
