@@ -17,3 +17,4 @@ data-ingest/medispan-dump.csv
 data-ingest/medispan-dump-with-headers.csv
 *.pyc
 __pycache__/
+logs/

@@ -100,4 +100,4 @@ class ConnectSqlServer:
             counter += 1
 
         print(counter)
-        ## TODO: process above records
+        return results
