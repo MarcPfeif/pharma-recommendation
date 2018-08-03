@@ -2,6 +2,7 @@
 
 import os
 import pyodbc
+import logging
 from dotenv import load_dotenv
 from os.path import join, dirname, os
 
@@ -12,7 +13,14 @@ class ConnectSqlServer:
         ## load environment values from .env
         dotenv_path = join(dirname(__file__), '../.env')
         load_dotenv(dotenv_path)
+        self.logDir = os.chdir(
+            os.path.dirname(__file__) + '/../logs'
+        )
 
+        logFile = str(self.logDir) + os.getenv("PHARMA_INGEST_LOG")
+
+        logging.basicConfig(filename=logFile,level=logging.DEBUG)
+        logging.info('HERE')
         self.server = os.getenv("MSSQL_SERVER")
         self.database = os.getenv("MSSQL_DATABASE")
         self.driver = os.getenv("MSSQL_DRIVER")
@@ -94,7 +102,7 @@ class ConnectSqlServer:
     def get_drug_orders_by_date(self, conn, date):
         cursor = conn.cursor()
         results = cursor.execute("{CALL p_PCCDrugOrderGetListByDate (?)}", date)
-        
+
         return results
         #counter = 0
         #for result in results:
