@@ -64,8 +64,13 @@ class DrugOrders(models.Model):
     facility_id = models.CharField(max_length=100, null=True, blank=True)
     vitals_description = models.CharField(max_length=100, null=True, blank=True)
     value = models.CharField(max_length=100, null=True, blank=True)
-    BPD_value = models.CharField(max_length=100, null=True, blank=True)
+    BP_vitals_description = models.CharField(max_length=255, null=True, blank=True)
+    BP_value = models.CharField(max_length=100, null=True, blank=True)
     BPD_diastolic_value = models.CharField(max_length=100, null=True, blank=True)
     facility_name = models.CharField(max_length=100, null=True, blank=True)
     allergy = models.CharField(max_length=100, null=True, blank=True)
     NCSP_pho_phys_order = models.CharField(max_length=100, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Drug Orders'
+        verbose_name_plural = 'Drug Orders'
