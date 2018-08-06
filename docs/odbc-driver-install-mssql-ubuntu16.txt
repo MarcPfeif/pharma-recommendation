@@ -1,8 +1,6 @@
 sudo su
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 
-\
-\
 
 #Ubuntu 16.04
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
@@ -20,3 +18,6 @@ source ~/.bashrc
 
 # optional: for unixODBC development headers
 sudo apt-get install unixodbc-dev
+
+REFERENCE URL:
+https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-2017
