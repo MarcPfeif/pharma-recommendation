@@ -94,9 +94,3 @@ class ConnectSqlServer:
         results = cursor.execute("{CALL p_PCCDrugOrderGetListByDate (?)}", date)
 
         return results
-        #counter = 0
-        #for result in results:
-        #    print(result)
-        #    counter += 1
-
-        #print(counter)
