@@ -1,8 +1,8 @@
 ''' mssqlserver.py '''
 
 import os
-import pyodbc
 import logging
+import pyodbc
 from dotenv import load_dotenv
 from os.path import join, dirname, os
 
@@ -11,16 +11,6 @@ class ConnectSqlServer:
 
     def __init__(self):
         ## load environment values from .env
-        dotenv_path = join(dirname(__file__), '../.env')
-        load_dotenv(dotenv_path)
-        self.logDir = os.chdir(
-            os.path.dirname(__file__) + '/../logs'
-        )
-
-        logFile = str(self.logDir) + os.getenv("PHARMA_INGEST_LOG")
-
-        logging.basicConfig(filename=logFile,level=logging.DEBUG)
-        logging.info('HERE')
         self.server = os.getenv("MSSQL_SERVER")
         self.database = os.getenv("MSSQL_DATABASE")
         self.driver = os.getenv("MSSQL_DRIVER")

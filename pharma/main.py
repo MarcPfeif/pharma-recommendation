@@ -1,12 +1,31 @@
 ''' main.py '''
 
 import datetime
+import logging
 from db import Db
-from mssqlserver import ConnectSqlServer
+from dotenv import load_dotenv
 from import_drug_orders import ImportDrugOrders
+from mssqlserver import ConnectSqlServer
+from os.path import join, dirname, os
+import pathlib
 
+
+## Load .env values
+dotenv_path = join(dirname(__file__), '../.env')
+load_dotenv(dotenv_path)
+
+## Setup Logging ( warning, info and debug)
+logDir = os.getcwd() + "/../logs/"
+logFile = logDir + os.getenv("PHARMA_INGEST_LOG")
+logging.basicConfig(
+    filename=logFile,
+    level=logging.DEBUG,
+    format='%(asctime)s %(message)s',
+    datefmt='%m/%d/%Y %I:%M:%S %p'
+)
+
+## connect to SQL Server Data Warehouse
 sqlServer = ConnectSqlServer()
-
 conn = sqlServer.connect_sql_server()
 
 #tables = sqlServer.get_all_tables(conn)
