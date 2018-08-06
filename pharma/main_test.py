@@ -15,10 +15,8 @@ dotenv_path = join(dirname(__file__), '../.env')
 load_dotenv(dotenv_path)
 
 ## Setup Logging ( warning, info and debug)
-logDir = os.getcwd() + "/../logs/"
-logFile = logDir + os.getenv("PHARMA_INGEST_LOG")
 logging.basicConfig(
-    filename=logFile,
+    filename=os.getenv("PHARMA_INGEST_LOG"),
     level=logging.DEBUG,
     format='%(asctime)s %(message)s',
     datefmt='%m/%d/%Y %I:%M:%S %p'
