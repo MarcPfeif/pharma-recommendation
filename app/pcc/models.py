@@ -4,6 +4,14 @@ from django.contrib import admin
 from django.db import models
 
 # Create your models here.
+class Facility(models.Model):
+    facility_id = models.AutoField(primary_key=True)
+    facility_name = models.CharField(max_length=255, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Facilities'
+        verbose_name_plural = 'Facilities'
+
 class DrugOrders(models.Model):
     pcc_drug_order_id = models.AutoField(primary_key=True)
     client_id = models.IntegerField(null=True, blank=True)

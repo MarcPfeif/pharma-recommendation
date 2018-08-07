@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import DrugOrders
+from .models import Facility, DrugOrders
 
 '''
     PCC Drug Orders Administration
@@ -28,3 +28,4 @@ class DrugOrdersAdmin(admin.ModelAdmin):
 
 
 admin.site.register(DrugOrders, DrugOrdersAdmin)
+admin.site.register(Facility)
