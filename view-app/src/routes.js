@@ -183,14 +183,13 @@ const User = Loadable({
 });
 
 
-
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/facility', name: 'Dashboard', component: Charts },
-  { path: '/facility/:id', name: 'Dashboard', component: Colors },
-  { path: '/charts', name: 'Charts', component: Charts },
+  { path: '/facilities', name: 'Dashboard', component: Charts },
+  { path: '/facility/:id', name: 'Dashboard', exact:true, component: Colors },
+  { path: '/facility/:id/patient/:id', exact: true, name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
 ];
