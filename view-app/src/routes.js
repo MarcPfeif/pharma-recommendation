@@ -182,12 +182,17 @@ const User = Loadable({
   loading: Loading,
 });
 
+const Facilities = Loadable({
+  loader: () => import('./views/Facilities/Facilities'),
+  loading: Loading,
+})
+
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/facilities', name: 'Dashboard', component: Charts },
+  { path: '/facilities', name: 'Facilities', component: Facilities },
   { path: '/facility/:id', name: 'Dashboard', exact:true, component: Colors },
   { path: '/facility/:id/patient/:id', exact: true, name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
