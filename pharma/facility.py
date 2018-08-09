@@ -10,7 +10,7 @@ class Facility:
     def __init__(self):
         pass
 
-    ## TODO: get all the facilities from datawarehouse
+    ## TODO: get all the facilities from data warehouse
     def get_all_facilities(self):
         pass
 
