@@ -42,7 +42,9 @@ class DefaultLayout extends Component {
             <Container fluid>
               <Switch>
                 {routes.map((route, idx) => {
-                    return route.component ? (<Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
+                    return route.component ? (<Route key={idx} path={route.path}
+                      exact={route.exact} name={route.name}
+                      render={props => (
                         <route.component {...props} />
                       )} />)
                       : (null);
@@ -52,9 +54,6 @@ class DefaultLayout extends Component {
               </Switch>
             </Container>
           </main>
-          <AppAside fixed hidden>
-            <DefaultAside />
-          </AppAside>
         </div>
         <AppFooter>
           <DefaultFooter />

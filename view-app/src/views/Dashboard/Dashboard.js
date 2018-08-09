@@ -490,10 +490,8 @@ class Dashboard extends Component {
                       <i className="icon-settings"></i>
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another action</DropdownItem>
-                      <DropdownItem disabled>Disabled action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
+                      <DropdownItem>View All Facilities</DropdownItem>
+                      <DropdownItem>Manage My Facilities</DropdownItem>
                     </DropdownMenu>
                   </ButtonDropdown>
                 </ButtonGroup>
@@ -505,7 +503,6 @@ class Dashboard extends Component {
               </div>
             </Card>
           </Col>
-
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-primary">
               <CardBody className="pb-0">
@@ -515,9 +512,8 @@ class Dashboard extends Component {
                       <i className="icon-location-pin"></i>
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
+                      <DropdownItem>View All Residents</DropdownItem>
+                      <DropdownItem>View Residents By Facility</DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
                 </ButtonGroup>
@@ -539,14 +535,14 @@ class Dashboard extends Component {
                       <i className="icon-settings"></i>
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
+                      <DropdownItem>View All Orders</DropdownItem>
+                      <DropdownItem>View Pending Orders</DropdownItem>
+                      <DropdownItem>View By Facility</DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
                 </ButtonGroup>
-                <div className="text-value">9.823</div>
-                <div>Members online</div>
+                <div className="text-value">125</div>
+                <div>Drug Orders</div>
               </CardBody>
               <div className="chart-wrapper" style={{ height: '70px' }}>
                 <Line data={cardChartData3} options={cardChartOpts3} height={70} />
@@ -563,9 +559,8 @@ class Dashboard extends Component {
                       <i className="icon-settings"></i>
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
+                      <DropdownItem>View Standard Reports</DropdownItem>
+                      <DropdownItem>View Custom Reports</DropdownItem>
                     </DropdownMenu>
                   </ButtonDropdown>
                 </ButtonGroup>

@@ -187,6 +187,12 @@ const Facilities = Loadable({
   loading: Loading,
 })
 
+// generic template to start with header/footer and nav
+const Template = Loadable({
+  loader: () => import('./views/Template/Template'),
+  loading: Loading,
+})
+
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -197,6 +203,7 @@ const routes = [
   { path: '/facility/:id/patient/:id', exact: true, name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
+  { path: '/template', exact: true, name: 'Template', component: Template },
 ];
 
 export default routes;
